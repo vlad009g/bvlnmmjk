@@ -1,0 +1,54 @@
+Вот общий код для полноценного веб-приложения с регистрацией, входом, расчетом расхода топлива, историей поездок и сохранением данных в localStorage.
+
+
+---
+
+HTML (index.html)
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор расхода топлива</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>Калькулятор расхода топлива</h1>
+</header>
+<nav>
+    <button onclick="showSection('calculator')">📊 Калькулятор</button>
+    <button onclick="showSection('history')">📜 История</button>
+    <button onclick="showSection('auth')">🔑 Вход/Регистрация</button>
+</nav>
+
+<div id="calculator" class="section active">
+    <h2>Калькулятор</h2>
+    <input type="number" id="distance" placeholder="Расстояние (км)">
+    <input type="number" id="fuel" placeholder="Топливо (л)">
+    <button onclick="calculateFuel()">Рассчитать</button>
+    <div id="result"></div>
+</div>
+
+<div id="history" class="section">
+    <h2>История поездок</h2>
+    <ul id="historyList"></ul>
+</div>
+
+<div id="auth" class="section">
+    <h2>Вход / Регистрация</h2>
+    <input type="email" id="authEmail" placeholder="Введите email">
+    <input type="password" id="authPassword" placeholder="Введите пароль">
+    <button onclick="register()">Регистрация</button>
+    <button onclick="login()">Вход</button>
+    <div id="authStatus"></div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Калькулятор расхода топлива</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
+
